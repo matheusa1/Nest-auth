@@ -4,22 +4,22 @@
 
 - Instale as dependencias do projeto:
 
-  ```bash
-  $ pnpm i
-  ```
+```bash
+pnpm i
+```
 
 - Configure seu .env seguindo os conformes do .env.exemple
 
 - Crie o banco no prisma usando o comando:
 
 ```bash
-$ pnpm prisma migrate dev
+pnpm prisma migrate dev
 ```
 
 - Basta executar o comando de início:
 
 ```bash
-$ pnpm start:dev
+pnpm start:dev
 ```
 
 ## Rotas disponíveis
