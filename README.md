@@ -2,6 +2,12 @@
 
 ## Como executar o projeto
 
+- Instale as dependencias do projeto:
+
+  ```bash
+  $ pnpm i
+  ```
+
 - Configure seu .env seguindo os conformes do .env.exemple
 
 - Crie o banco no prisma usando o comando:
