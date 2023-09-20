@@ -4,7 +4,7 @@ import { ConflictException, Injectable } from '@nestjs/common';
 import {
   IUserRepositoryCreate,
   IUserRepositoryGetUsers,
-} from 'src/application/types/userRepository';
+} from 'src/types/userRepository';
 import * as bcript from 'bcrypt';
 
 @Injectable()

@@ -1,4 +1,4 @@
-import { AuthRepository } from 'src/application/repositories/auth-repository';
+import { AuthRepository } from 'src/repositories/auth-repository';
 import {
   Controller,
   HttpCode,
@@ -8,8 +8,8 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { LocalAuthGuard } from './guards/local-auth.guard';
-import { IAuthRequest } from 'src/application/types/authRequest';
-import { IsPublic } from './decorators/isPublic.decorator';
+import { IAuthRequest } from 'src/types/authRequest';
+import { IsPublic } from '../../decorators/isPublic.decorator';
 
 @Controller('auth')
 export class AuthController {

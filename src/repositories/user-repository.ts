@@ -1,7 +1,7 @@
 import {
   IUserRepositoryCreate,
   IUserRepositoryGetUsers,
-} from 'src/application/types/userRepository';
+} from 'src/types/userRepository';
 
 export abstract class UserRepository {
   abstract create(

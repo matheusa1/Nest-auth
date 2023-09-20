@@ -1,6 +1,6 @@
 import { createParamDecorator, ExecutionContext } from '@nestjs/common';
-import { IAuthRequest } from 'src/application/types/authRequest';
-import { IUserAuth } from 'src/application/types/userRepository';
+import { IAuthRequest } from 'src/types/authRequest';
+import { IUserAuth } from 'src/types/userRepository';
 
 export const CurrentUser = createParamDecorator(
   (data: unknown, context: ExecutionContext): IUserAuth => {

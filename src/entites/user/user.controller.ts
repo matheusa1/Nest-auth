@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
-import { createUserBody } from 'src/application/dtos/create-user-body';
-import { UserRepository } from 'src/application/repositories/user-repository';
-import { IsPublic } from '../auth/decorators/isPublic.decorator';
+import { IsPublic } from 'src/decorators/isPublic.decorator';
+import { createUserBody } from 'src/dtos/create-user-body';
+import { UserRepository } from 'src/repositories/user-repository';
 
 @Controller('user')
 export class UserController {

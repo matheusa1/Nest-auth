@@ -6,13 +6,10 @@ import {
 import { AuthRepository } from '../auth-repository';
 import { PrismaService } from 'src/database/prisma.service';
 import * as bcript from 'bcrypt';
-import {
-  IUserAuth,
-  UserPayloadJWT,
-} from 'src/application/types/userRepository';
+import { IUserAuth, UserPayloadJWT } from 'src/types/userRepository';
 
 import { JwtService } from '@nestjs/jwt';
-import { ILoginResponse } from 'src/application/types/authRequest';
+import { ILoginResponse } from 'src/types/authRequest';
 
 @Injectable()
 export class PrismaAuthRepository implements AuthRepository {
