@@ -1,15 +1,37 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import {
+  Injectable,
+  NotFoundException,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { AuthRepository } from '../auth-repository';
 import { PrismaService } from 'src/database/prisma.service';
+import * as bcript from 'bcrypt';
+import {
+  IUserAuth,
+  UserPayloadJWT,
+} from 'src/application/types/userRepository';
+
+import { JwtService } from '@nestjs/jwt';
+import { ILoginResponse } from 'src/application/types/authRequest';
 
 @Injectable()
 export class PrismaAuthRepository implements AuthRepository {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly jwt: JwtService,
+  ) {}
 
-  async login(email: string, password: string): Promise<any> {
+  async login(user: IUserAuth): Promise<ILoginResponse> {
+    const payload: UserPayloadJWT = {
+      email: user.email,
+      name: user.name,
+      id: user.id,
+    };
+
+    const token = this.jwt.sign(payload);
+
     return {
-      email,
-      password,
+      token,
     };
   }
 
@@ -21,12 +43,18 @@ export class PrismaAuthRepository implements AuthRepository {
     });
 
     if (!user) {
-      return new UnauthorizedException('Usuário não encontrado');
+      throw new NotFoundException('Usuário não encontrado');
+    }
+
+    const passwordMatch = await bcript.compare(password, user.password);
+
+    if (!passwordMatch) {
+      throw new UnauthorizedException('Senha incorreta');
     }
 
     return {
-      email,
-      password,
+      ...user,
+      password: undefined,
     };
   }
 }
