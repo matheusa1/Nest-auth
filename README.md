@@ -39,7 +39,7 @@ pnpm start:dev
 
 ### Login
 
-- ROTA: /auth/login
+- Rota: /auth/login
 - Método: POST
 - body
   ```json
@@ -53,12 +53,10 @@ pnpm start:dev
 
 - Rota: /user
 - Método: GET
-- headers
-  Barear token
+- Autenticação: Barear token
 
 ### Lista de todos os usuários
 
 - Rota: /me
 - Método: GET
-- headers
-  Barear token
+- Autenticação: Barear token
